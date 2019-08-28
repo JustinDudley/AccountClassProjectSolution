@@ -3,7 +3,10 @@
 namespace AccountClassProject {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+
+            //now, create an instance of the account
+            var acct1 = new Account();
+
         }
     }
 }
