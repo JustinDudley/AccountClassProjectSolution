@@ -5,13 +5,14 @@ using System.Text;
 namespace AccountClassProject {
     class Account {
 
+           // CLASS VARIABLES
         private static int nextAccountNbr = 0;  //static variable, class-level, shared
+           // INSTANCE VARIABLES
         public int AccountNumber { get; private set; }  // other classes can only read
         private decimal Balance { get; set; } = 0.0M; // note the "M". Note that we set a beginning value
         public string Description { get; set; }     // user-definable description
 
-
-
+        
         public void Transfer(Account acct, decimal amount) {    // "Account" is a type, just like an array...
             var withdrawSuccessful = this.Withdraw(amount);     // Here, we must use our keyword "this"
             if(withdrawSuccessful) {
@@ -45,7 +46,7 @@ namespace AccountClassProject {
         }
         public bool Deposit(decimal Amount) {
             var valid = CheckAmountIsPositive(Amount);
-            if (valid == true) {
+            if (valid) {
                 Balance += Amount;
                 return true;
             }
@@ -54,7 +55,7 @@ namespace AccountClassProject {
 
         public bool Withdraw(decimal Amount) {
             var valid = CheckAmountIsPositive(Amount);
-            if(valid == true) {
+            if(valid) {
                 if(Amount > Balance) {
                     Console.WriteLine("Insufficient funds.");
                 } else {
